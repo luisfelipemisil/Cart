@@ -687,77 +687,80 @@ info atalhos(int txt [] [tamM], int linY, int colX,char nome [tamM]) {
 
 }
 void SalvaBitmap(int matriz [] [tamM], char arquivNo []){
-		FILE *arq;
-		int j,k,l;
-		char p,cop[tamM];
-		int i [11]={0x42,0x4d,0xf6,0x12,0x00,0x36,0x28,0x1e,0x01,0x18,0xc0};
-		int c176=0xe6,c177=0xb4,c178=0x78,c219=0xff,c255=0x00,c186=0xff;
+	FILE *arq;
+	int j,k,l;
+	char p,cop[tamM];
+	int i [11]={0x42,0x4d,0x36,0x2c,0x00,0x36,0x28,0xa0,0x01,0x18,0xb0};
+	int c176=0xe6,c177=0xb4,c178=0x78,c219=0xff,c255=0x00,c186=0xff;
 
-		strcpy(cop,arquivNo);
-		strcat(cop,".bmp");
+	strcpy(cop,arquivNo);
+	strcat(cop,".bmp");
 
-		arq=fopen(cop, "w");
-		if(arq!=NULL){
-			for(k=0;k<4;k++){
-				fprintf(arq,"%c",i[k]);
-			}
-			for(k=0;k<6;k++){
-				fprintf(arq,"%c",i[4]);
-			}	
-			fprintf(arq,"%c",i[5]);
-			for(k=0;k<3;k++){
-				fprintf(arq,"%c",i[4]);
-			}
-			fprintf(arq,"%c",i[6]);	
-			for(k=0;k<3;k++){
-				fprintf(arq,"%c",i[4]);
-			}
-			fprintf(arq,"%c",i[6]);
-			for(k=0;k<3;k++){
-				fprintf(arq,"%c",i[4]);
-			}
-			fprintf(arq,"%c",i[6]);
-			for(k=0;k<3;k++){
-				fprintf(arq,"%c",i[4]);
-			}
-			fprintf(arq,"%c",i[8]);
+	arq=fopen(cop, "w");
+	if(arq!=NULL){
+		for(k=0;k<4;k++){
+			fprintf(arq,"%c",i[k]);
+		}
+		fprintf(arq,"%c",i[8]);
+		for(k=0;k<5;k++){
 			fprintf(arq,"%c",i[4]);
-			fprintf(arq,"%c",i[9]);
-			for(k=0;k<5;k++){
-				fprintf(arq,"%c",i[4]);
-			}
-			fprintf(arq,"%c",i[10]);
-			fprintf(arq,"%c",i[3]);
-			for(k=0;k<=17;k++){
-				fprintf(arq,"%c",i[4]);
-			}
-			for(l=tamM-1;l>=0;l--){
-				for(j=0;j<tamM;j++){
-					if(matriz[l] [j] == 176){
-						fprintf(arq,"%c%c%c",c176,c176,c176);
-					}
-					else if(matriz[l] [j] == 177){
-						fprintf(arq,"%c%c%c",c177,c177,c177);
-					}
-					else if(matriz[l] [j] == 178){
-						fprintf(arq,"%c%c%c",c178,c178,c178);
-					}
-					else if(matriz[l] [j] == 219){
-						fprintf(arq,"%c%c%c",c219,c219,c219);
-					}
-					else if(matriz[l] [j] == 255){
-						fprintf(arq,"%c%c%c",c255,c255,c255);
-					}
-					else if(matriz[l] [j] == 186){
-						fprintf(arq,"%c%c%c",0,0,c186);
-					}
+		}	
+		fprintf(arq,"%c",i[5]);
+		for(k=0;k<3;k++){
+			fprintf(arq,"%c",i[4]);
+		}
+		fprintf(arq,"%c",i[6]);	
+		for(k=0;k<3;k++){
+			fprintf(arq,"%c",i[4]);
+		}
+		fprintf(arq,"%c",i[7]);
+		for(k=0;k<3;k++){
+			fprintf(arq,"%c",i[4]);
+		}
+		fprintf(arq,"%c",i[7]);
+		for(k=0;k<3;k++){
+			fprintf(arq,"%c",i[4]);
+		}
+		fprintf(arq,"%c",i[8]);
+		fprintf(arq,"%c",i[4]);
+		fprintf(arq,"%c",i[9]);
+		for(k=0;k<6;k++){
+			fprintf(arq,"%c",i[4]);
+		}
+		fprintf(arq,"%c",i[3]);
+		fprintf(arq,"%c",i[8]);
+		for(k=0;k<=16;k++){
+			fprintf(arq,"%c",i[4]);
+		}
+	}
+
+	for(l=tamM-1;l>=0;l--){
+		for(k=0;k<4;k++){
+			for(j=0;j<tamM;j++){
+				if(matriz[l] [j] == 176){
+					fprintf(arq,"%c%c%c%c%c%c%c%c%c%c%c%c",c176,c176,c176,c176,c176,c176,c176,c176,c176,c176,c176,c176);
 				}
-			
-			//fprintf(arq,"%c%c",0,0);
+				else if(matriz[l] [j] == 177){
+					fprintf(arq,"%c%c%c%c%c%c%c%c%c%c%c%c",c177,c177,c177,c177,c177,c177,c177,c177,c177,c177,c177,c177);
+				}
+				else if(matriz[l] [j] == 178){
+					fprintf(arq,"%c%c%c%c%c%c%c%c%c%c%c%c",c178,c178,c178,c178,c178,c178,c178,c178,c178,c178,c178,c178);
+				}
+				else if(matriz[l] [j] == 219){
+					fprintf(arq,"%c%c%c%c%c%c%c%c%c%c%c%c",c219,c219,c219,c219,c219,c219,c219,c219,c219,c219,c219,c219);
+				}
+				else if(matriz[l] [j] == 255){
+					fprintf(arq,"%c%c%c%c%c%c%c%c%c%c%c%c",c255,c255,c255,c255,c255,c255,c255,c255,c255,c255,c255,c255);
+				}
+				else if(matriz[l] [j] == 186){
+					fprintf(arq,"%c%c%c%c%c%c%c%c%c%c%c%c",0,0,c186,0,0,c186,0,0,c186,0,0,c186);
+				}
+			}
 		}
-		}
-		fclose(arq);
-		//rename("novo.bmp",nome);
+		//fprintf(arq,"%c%c",0,0);
+	}
+	fclose(arq);
+	//rename("novo.bmp",nome);
 }
 /*
 
