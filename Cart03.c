@@ -164,6 +164,7 @@ char *SalvaArquivo (int txt [] [tamM]){
 	nome=(char*) malloc(tamM*sizeof(char));
 	strcpy(nome,"");
 	FILE *arq;
+	printf("As figuras estao salvas em arquivos .txt, digite apenas o nome do arquivo.\n");
 	printf("Abrir arquivo? S|N : ");
 	scanf(" %c", &s);
 	if(s=='s' || s == 'S'){
